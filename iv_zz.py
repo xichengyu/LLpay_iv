@@ -15,7 +15,7 @@ import information_value as cal_iv
 #            'on A.id_no_hash = B.id_no_hash and A.dt_apply = B.dt_apply where B.status in ("已逾期", "还款完成") limit 10'
 
 
-target_field = ["avg_p_ovd_lt500_cashbus_30d", "max_p_ovd_lt500_cashbus", "max_vp_at_data_days_30d"]
+target_field = ["avg_p_ovd_lt500_cashbus_30d", "max_p_ovd_lt500_cashbus"]
 
 test_sql = 'select %s from dbmodel.data_lianlian_idno_pro limit 100' % ', '.join(target_field)
 
