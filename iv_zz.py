@@ -17,7 +17,9 @@ import information_value as cal_iv
 
 target_field = ["avg_p_ovd_lt500_cashbus_30d", "max_p_ovd_lt500_cashbus"]
 
-test_sql = 'select %s from dbmodel.data_lianlian_idno_pro limit 100' % ', '.join(target_field)
+# test_sql = 'select %s from dbmodel.data_lianlian_idno_pro limit 100' % ', '.join(target_field)
+
+test_sql = 'select *'
 
 X = np.array(fetch_from_hive(test_sql))
 
@@ -27,9 +29,9 @@ y = [1]*10+[0]*90
 
 print(y)
 
-woe = cal_iv.WOE()
+# woe = cal_iv.WOE()
 
-res_woe, res_iv = woe.woe(X, y, 1)
+# res_woe, res_iv = woe.woe(X, y, 1)
 
-print(res_woe)
-print(res_iv)
+# print(res_woe)
+# print(res_iv)

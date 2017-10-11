@@ -109,7 +109,8 @@ class WOE(object):
         return res
 
     def count_binary(self, a, event=1):
-        event_count = (a == event).sum()
+        # Error may occur when code running on linux environment, consider add ".astype()"
+        event_count = (a == event).astype(int).sum()
         non_event_count = a.shape[-1] - event_count
         return event_count, non_event_count
 
@@ -158,12 +159,20 @@ class WOE(object):
     @property
     def WOE_MIN(self):
         return self._WOE_MIN
+
     @WOE_MIN.setter
     def WOE_MIN(self, woe_min):
         self._WOE_MIN = woe_min
+
     @property
     def WOE_MAX(self):
         return self._WOE_MAX
+
     @WOE_MAX.setter
     def WOE_MAX(self, woe_max):
         self._WOE_MAX = woe_max
+
+
+if __name__ == "__main__":
+
+    woe = WOE()
