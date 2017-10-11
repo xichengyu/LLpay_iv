@@ -15,7 +15,7 @@ import logging
 # import numpy as np
 # import pandas as pd
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.ERROR)
 logging.getLogger('../hivelog/pyhive.log').setLevel(logging.INFO)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
