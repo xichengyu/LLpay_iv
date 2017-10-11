@@ -2,11 +2,8 @@
 
 """python 3.6"""
 
-import sys
+# import sys
 import numpy as np
-sys.path.append("information_value/src")
-
-
 from inputs import fetch_from_hive
 import information_value as cal_iv
 
@@ -25,4 +22,8 @@ print (X)
 
 y = [1]*10+[0]*90
 
+print (y)
+
 woe = cal_iv.WOE()
+
+print (woe.woe(X, y, 1))
