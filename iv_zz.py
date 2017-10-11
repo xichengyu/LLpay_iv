@@ -4,8 +4,6 @@
 
 import sys
 import numpy as np
-reload(sys)
-sys.setdefaultencoding('utf-8')
 sys.path.append("../information_value/src")
 
 from inputs import fetch_from_hive
