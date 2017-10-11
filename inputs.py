@@ -16,7 +16,7 @@ import logging
 # import pandas as pd
 
 logging.basicConfig(level=logging.DEBUG)
-logging.getLogger('pyhive').setLevel(logging.INFO)
+logging.getLogger('../hivelog/pyhive.log').setLevel(logging.INFO)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -90,5 +90,12 @@ def fetch_from_hive(sql):
         logs = cursor.fetch_logs()
         for message in logs:
             logger.info(message)
-        status = cursor.poll().operationState   
+        status = cursor.poll().operationState
     return cursor.fetchall()
+
+
+if __name__ == "__main__":
+
+    test_sql = "select * from dbmodel.data_lianlian_idno_pro limit 10"
+
+    print (fetch_from_hive(test_sql))
