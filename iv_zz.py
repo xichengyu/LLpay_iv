@@ -4,10 +4,10 @@
 
 import sys
 import numpy as np
-sys.path.append("/information_value/src")
+sys.path.append("information_value/src")
+
 
 from inputs import fetch_from_hive
-from information_value import WOE
 import information_value as cal_iv
 
 
