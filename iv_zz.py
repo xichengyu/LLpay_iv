@@ -4,10 +4,10 @@
 
 import sys
 import numpy as np
-sys.path.append("../information_value/src")
+sys.path.append("/information_value/src")
 
 from inputs import fetch_from_hive
-import information_value
+import information_value as cal_iv
 
 
 test_sql = "select * from dbmodel.data_lianlian_idno_pro limit 10"
@@ -15,6 +15,6 @@ test_sql = "select * from dbmodel.data_lianlian_idno_pro limit 10"
 
 X = np.array(fetch_from_hive(test_sql))
 
-woe = information_value.WOE()
+woe = cal_iv.WOE()
 
 print (X)
