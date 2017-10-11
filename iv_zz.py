@@ -26,4 +26,7 @@ print (y)
 
 woe = cal_iv.WOE()
 
-print (woe.woe(X, y, 1))
+res_woe, res_iv = woe.woe(X, y, 1)
+
+print (res_woe)
+print (res_iv)
