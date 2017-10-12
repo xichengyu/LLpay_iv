@@ -16,7 +16,7 @@ localpath = "../data_lianlian"
 res = rd.read_local_data(localpath)
 joblib.dump(res, "conf/raw_data.dt")
 new_nparray = rd.delete_str_column(res)
-joblib.dump(res, "conf/float_data.dt")
+joblib.dump(new_nparray, "conf/float_data.dt")
 
 y = new_nparray[:, -1]
 X = np.delete(new_nparray, -1, axis=1)
