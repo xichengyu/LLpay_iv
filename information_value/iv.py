@@ -3,6 +3,7 @@ import math
 from scipy import stats
 from sklearn.utils.multiclass import type_of_target
 
+
 class WOE(object):
     def __init__(self):
         self._WOE_MIN = -20
