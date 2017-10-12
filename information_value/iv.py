@@ -147,10 +147,10 @@ class WOE(object):
             if x_type == 'continuous':
                 x1 = self.discrete(x)
                 temp.append(x1)
-                logging.info("after: " + " ".join([str(i), str(set(x1))]))
+                logging.info("after: " + " ".join([str(i), str(set(x1)), str(x1)]))
             else:
                 temp.append(x)
-                logging.info("after: " + " ".join([str(i), str(set(x))]))
+                logging.info("after: " + " ".join([str(i), str(set(x)), str(x)]))
         return np.array(temp).T
 
     def discrete(self, x):
