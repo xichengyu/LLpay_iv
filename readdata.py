@@ -6,7 +6,7 @@ import os
 def read_local_data(localpath):
     files = os.listdir(localpath)
     for file in files:
-        temp = file.readlines("%s" % file)
+        temp = open("%s" % file).readlines()
         print(type(temp))
 
     pass
