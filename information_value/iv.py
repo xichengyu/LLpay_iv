@@ -135,6 +135,7 @@ class WOE(object):
         for i in range(0, X.shape[-1]):
             x = X[:, i]
             x_type = type_of_target(x)
+            print(i, set(X[:, i]), x_type)
             if x_type == 'continuous':
                 x1 = self.discrete(x)
                 temp.append(x1)
