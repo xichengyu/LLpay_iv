@@ -35,7 +35,7 @@ def read_local_data(localpath, default=-1.0):
     temp = np.array(res)
 
     res = np.copy(temp)
-    for idx in range(res.shape[-1]):
+    for idx in range(res.shape[-1]):        # replace non_type value with -1.0
         res[:, idx][np.where(res[:, idx] == '\\N')[0]] = default
     print_info(res[0])
     return res
