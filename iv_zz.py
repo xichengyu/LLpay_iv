@@ -19,9 +19,8 @@ y = new_nparray[:, -1]
 
 X = np.delete(new_nparray, -1, axis=1)
 
-print(X.shape)
-
-print(y)
+rd.print_info(X.shape)
+rd.print_info(y)
 
 cal_woe = WOE()
 
