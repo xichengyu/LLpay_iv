@@ -143,12 +143,14 @@ class WOE(object):
         for i in range(0, X.shape[-1]):
             x = X[:, i]
             x_type = type_of_target(x)
-            logging.info(" ".join([str(i), str(set(X[:, i])), str(x_type)]))
+            logging.info("before: "+" ".join([str(i), str(set(X[:, i])), str(x_type)]))
             if x_type == 'continuous':
                 x1 = self.discrete(x)
                 temp.append(x1)
+                logging.info("after: " + " ".join([str(i), str(set(x1))]))
             else:
                 temp.append(x)
+                logging.info("after: " + " ".join([str(i), str(set(x))]))
         return np.array(temp).T
 
     def discrete(self, x):
