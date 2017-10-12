@@ -35,10 +35,10 @@ def delete_nonint_column(nparray):
     :param nparray:
     :return: the new numpy array
     """
-    new_nparray = np.array([])
+    new_nparray = np.array([[]]*nparray.shape[0])
     for idx in range(nparray.shape[-1]):
         try:
-            np.append(new_nparray, res[:, idx].astype(float), 1)
+            np.column_stack((new_nparray, res[:, idx].astype(float)))
         except ValueError:
             print(res[:, idx])
             continue
