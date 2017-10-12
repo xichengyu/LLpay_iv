@@ -41,7 +41,7 @@ def read_local_data(localpath, default=-1.0):
     return res
 
 
-def delete_nonint_column(nparray):
+def delete_str_column(nparray):
     """
     delete columns whose type is string
     :param nparray:
@@ -61,6 +61,6 @@ def delete_nonint_column(nparray):
 if __name__ == "__main__":
     localpath = "../data_lianlian"
     res = read_local_data(localpath)
-    new_nparray = delete_nonint_column(res)
+    new_nparray = delete_str_column(res)
 
     print_info(new_nparray.shape)
