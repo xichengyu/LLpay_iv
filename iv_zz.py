@@ -2,34 +2,28 @@
 
 """python 3.6"""
 
-# import sys
+import sys
 import numpy as np
-from inputs import fetch_from_hive
-import information_value as cal_iv
+# from inputs import fetch_from_hive
+import readdata as rd
+sys.path.append("information_value/")
+from iv import WOE
 
 
-# test_sql = 'select count(*) from dbmodel.data_lianlian_idno_pro A inner join dbmodel.loan_data B ' \
-#            'on A.id_no_hash = B.id_no_hash and A.dt_apply = B.dt_apply where B.status in ("已逾期", "还款完成")'
+localpath = "../data_lianlian"
 
-# test_sql = 'select * from dbmodel.data_lianlian_idno_pro A inner join dbmodel.loan_data B ' \
-#            'on A.id_no_hash = B.id_no_hash and A.dt_apply = B.dt_apply where B.status in ("已逾期", "还款完成") limit 10'
+res = rd.read_local_data(localpath)
+new_nparray = rd.delete_str_column(res)
 
+y = new_nparray[:, -1]
 
-target_field = ["avg_p_ovd_lt500_cashbus_30d", "max_p_ovd_lt500_cashbus"]
+X = np.delete(new_nparray, -1, axis=1)
 
-# test_sql = 'select %s from dbmodel.data_lianlian_idno_pro limit 100' % ', '.join(target_field)
-
-test_sql = 'select *'
-
-X = np.array(fetch_from_hive(test_sql))
-
-print(X)
-
-y = [1]*10+[0]*90
+print(X.shape)
 
 print(y)
 
-# woe = cal_iv.WOE()
+cal_woe = WOE()
 
 # res_woe, res_iv = woe.woe(X, y, 1)
 
