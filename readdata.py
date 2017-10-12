@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.externals import joblib
 
 
-def print_info(*args, if_print=True):
+def print_info(*args, if_print=False):
     """
     determine if log info printed
     :param string:
