@@ -28,7 +28,7 @@ class WOE(object):
             woe_dict, iv1 = self.woe_single_x(x, y, event)
             res_woe.append(woe_dict)
             res_iv.append(iv1)
-        return np.array(res_woe), np.array(res_iv)
+        return res_woe, res_iv
 
     def woe_single_x(self, x, y, event=1):
         '''

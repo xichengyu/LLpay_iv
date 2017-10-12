@@ -26,7 +26,7 @@ cal_woe = WOE()
 res_woe, res_iv = cal_woe.woe(X, y)
 
 rd.print_info(res_woe, res_woe.shape)
-joblib.dump(res_woe, "conf/woe.nparray")
+joblib.dump(res_woe, "conf/woe.list")
 rd.print_info(res_iv, res_iv.shape)
-joblib.dump(res_iv, "conf/iv.nparray")
+joblib.dump(res_iv, "conf/iv.list")
 
