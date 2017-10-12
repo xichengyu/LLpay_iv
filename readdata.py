@@ -8,8 +8,9 @@ def read_local_data(localpath):
     for file in files:
         temp = open(localpath+"/%s" % file).readlines()
         print(type(temp))
-        for line in temp:
-            print(line)
+        # for line in temp:
+            # print(line)
+        print(temp[0].split())
     pass
 
 
