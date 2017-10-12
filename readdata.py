@@ -8,7 +8,7 @@ def read_local_data(localpath):
     files = os.listdir(localpath)
     res = []
     for file in files:
-        temp = open(localpath+"/%s" % file).readlines()
+        temp = open(localpath + "/%s" % file).readlines()
         print(type(temp))
         print(temp[0].split(), len(temp[0].split()))
         for line in temp:
@@ -18,7 +18,7 @@ def read_local_data(localpath):
 
     res = np.copy(temp)
     for idx in range(res.shape[-1]):
-        res[:, idx][np.where(res[:, idx] == "\N")[0]] = -1.0
+        res[:, idx][np.where(res[:, idx] is None)[0]] = -1.0
 
     print(res[0])
 
@@ -28,4 +28,3 @@ def read_local_data(localpath):
 if __name__ == "__main__":
     localpath = "../data_lianlian"
     read_local_data(localpath)
-
