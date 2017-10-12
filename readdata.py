@@ -5,17 +5,6 @@ import numpy as np
 # import traceback
 
 
-def print_info(*args, if_print=True):
-    """
-    determine if log info printed
-    :param string:
-    :param if_print: control switch
-    :return:
-    """
-    if if_print:
-        print(*args)
-
-
 def read_local_data(localpath, default=-1.0):
     """
     read data from local place
@@ -38,7 +27,18 @@ def read_local_data(localpath, default=-1.0):
     for idx in range(res.shape[-1]):        # replace non_type value with -1.0
         res[:, idx][np.where(res[:, idx] == '\\N')[0]] = default
     print_info(res[0])
-    return res
+    return delete_str_column(res)
+
+
+def print_info(*args, if_print=True):
+    """
+    determine if log info printed
+    :param string:
+    :param if_print: control switch
+    :return:
+    """
+    if if_print:
+        print(*args)
 
 
 def delete_str_column(nparray):
@@ -61,6 +61,5 @@ def delete_str_column(nparray):
 if __name__ == "__main__":
     localpath = "../data_lianlian"
     res = read_local_data(localpath)
-    new_nparray = delete_str_column(res)
 
-    print_info(new_nparray.shape)
+    print_info(res.shape)
