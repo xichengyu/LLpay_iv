@@ -14,11 +14,13 @@ from sklearn.externals import joblib
 localpath = "../data_lianlian"
 
 res = rd.read_local_data(localpath)
+joblib.dump(res, "conf/raw_data.dt")
 new_nparray = rd.delete_str_column(res)
+joblib.dump(res, "conf/float_data.dt")
 
 y = new_nparray[:, -1]
 X = np.delete(new_nparray, -1, axis=1)
-joblib.dump(X, "conf/new_data.dt")
+joblib.dump(X, "conf/input_data.dt")
 
 rd.print_info(X.shape)
 rd.print_info(y.sum(), np.count_nonzero(y))

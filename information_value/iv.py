@@ -2,6 +2,14 @@ import numpy as np
 import math
 from scipy import stats
 from sklearn.utils.multiclass import type_of_target
+import logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='[%Y-%m-%d %H:%M:%S]', filename='conf/discretion.log', filemode='w')
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+formatter = logging.Formatter('%(name)-12s: %(levelname)-8s %(message)s')
+console.setFormatter(formatter)
+logging.getLogger('').addHandler(console)
 
 
 class WOE(object):
@@ -135,7 +143,7 @@ class WOE(object):
         for i in range(0, X.shape[-1]):
             x = X[:, i]
             x_type = type_of_target(x)
-            print(i, set(X[:, i]), x_type, file="conf/discretion.info")
+            logging.info(i, set(X[:, i]), x_type)
             if x_type == 'continuous':
                 x1 = self.discrete(x)
                 temp.append(x1)
