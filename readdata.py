@@ -2,6 +2,7 @@
 
 import os
 import numpy as np
+import traceback
 
 
 def read_local_data(localpath, default=-1.0):
@@ -41,6 +42,7 @@ def delete_nonint_column(nparray):
             np.column_stack((new_nparray, res[:, idx].astype(float)))
         except ValueError:
             print(res[:, idx])
+            traceback.print_exc()
             continue
     return new_nparray
 
