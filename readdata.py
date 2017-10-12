@@ -2,7 +2,18 @@
 
 import os
 import numpy as np
-import traceback
+# import traceback
+
+
+def print_info(*args, if_print=True):
+    """
+    determine if log info printed
+    :param string:
+    :param if_print: control switch
+    :return:
+    """
+    if if_print:
+        print(*args)
 
 
 def read_local_data(localpath, default=-1.0):
@@ -16,17 +27,17 @@ def read_local_data(localpath, default=-1.0):
     res = []
     for file in files:
         temp = open(localpath + "/%s" % file).readlines()
-        print(type(temp))
-        print(temp[0].split(), len(temp[0].split()))
+        print_info(type(temp))
+        print_info(temp[0].split(), len(temp[0].split()))
         for line in temp:
             res.append(line.split())
-    print("total data: ", len(res))
+    print_info("total data: ", len(res))
     temp = np.array(res)
 
     res = np.copy(temp)
     for idx in range(res.shape[-1]):
         res[:, idx][np.where(res[:, idx] == '\\N')[0]] = default
-    print(res[0])
+    print_info(res[0])
     return res
 
 
@@ -41,8 +52,8 @@ def delete_nonint_column(nparray):
         try:
             new_nparray = np.column_stack((new_nparray, res[:, idx].astype(float)))
         except ValueError:
-            print(res[:, idx])
-            traceback.print_exc()
+            print_info(res[:, idx])
+            # traceback.print_exc()
             continue
     return new_nparray
 
@@ -52,4 +63,4 @@ if __name__ == "__main__":
     res = read_local_data(localpath)
     new_nparray = delete_nonint_column(res)
 
-    print(new_nparray.shape)
+    print_info(new_nparray.shape)
