@@ -50,9 +50,9 @@ def delete_str_column(nparray):
     new_nparray = np.array([[]]*nparray.shape[0])
     for idx in range(nparray.shape[-1]):
         try:
-            new_nparray = np.column_stack((new_nparray, res[:, idx].astype(float)))
+            new_nparray = np.column_stack((new_nparray, nparray[:, idx].astype(float)))
         except ValueError:
-            print_info(res[:, idx])
+            print_info(nparray[:, idx])
             # traceback.print_exc()
             continue
     return new_nparray
