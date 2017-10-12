@@ -62,8 +62,6 @@ def delete_str_column(nparray):
 if __name__ == "__main__":
     localpath = "../data_lianlian"
     res = read_local_data(localpath)
-    joblib.dump(res, "conf/raw_data.dt")
     new_nparray = delete_str_column(res)
-    joblib.dump(new_nparray, "conf/new_data.dt")
 
     print_info(new_nparray.shape, new_nparray[0])

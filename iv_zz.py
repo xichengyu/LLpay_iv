@@ -18,6 +18,7 @@ new_nparray = rd.delete_str_column(res)
 
 y = new_nparray[:, -1]
 X = np.delete(new_nparray, -1, axis=1)
+joblib.dump(X, "conf/new_data.dt")
 
 rd.print_info(X.shape)
 rd.print_info(y.sum(), np.count_nonzero(y))
