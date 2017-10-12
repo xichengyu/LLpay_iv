@@ -24,7 +24,7 @@ rd.print_info(y.sum(), np.count_nonzero(y))
 
 cal_woe = WOE()
 
-# res_woe, res_iv = woe.woe(X, y, 1)
+res_woe, res_iv = cal_woe.woe(X, y)
 
-# print(res_woe)
-# print(res_iv)
+rd.print_info(res_woe)
+rd.print_info(res_iv)
