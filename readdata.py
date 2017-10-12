@@ -4,7 +4,11 @@ import os
 
 
 def read_local_data(localpath):
-    print(os.listdir(localpath))
+    files = os.listdir(localpath)
+    for file in files:
+        temp = file.readlines("%s" % file)
+        print(type(temp))
+
     pass
 
 
