@@ -30,11 +30,17 @@ def read_local_data(localpath, default=-1.0):
 
 
 def delete_nonint_column(nparray):
+    """
+    delete columns whose type is string
+    :param nparray:
+    :return: the new numpy array
+    """
     new_nparray = np.array([])
     for idx in range(nparray.shape[-1]):
         try:
             np.append(new_nparray, res[:, idx].astype(float), 1)
-        except:
+        except ValueError:
+            print(res[:, idx])
             continue
     return new_nparray
 
@@ -44,4 +50,4 @@ if __name__ == "__main__":
     res = read_local_data(localpath)
     new_nparray = delete_nonint_column(res)
 
-    print(new_nparray[0])
+    print(new_nparray.shape)
