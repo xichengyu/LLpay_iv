@@ -63,4 +63,4 @@ if __name__ == "__main__":
     res = read_local_data(localpath)
     new_nparray = delete_str_column(res)
 
-    print_info(new_nparray.shape)
+    print_info(new_nparray.shape, new_nparray[0])
