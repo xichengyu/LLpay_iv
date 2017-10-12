@@ -18,7 +18,7 @@ def read_local_data(localpath):
 
     res = np.copy(temp)
     for idx in range(res.shape[-1]):
-        res[:, idx][np.where(res[:, idx] is None)[0]] = -1.0
+        res[:, idx][np.where(res[:, idx] == '\\N')[0]] = -1.0
 
     print(res[0])
 
