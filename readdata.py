@@ -39,7 +39,7 @@ def delete_nonint_column(nparray):
     new_nparray = np.array([[]]*nparray.shape[0])
     for idx in range(nparray.shape[-1]):
         try:
-            np.column_stack((new_nparray, res[:, idx].astype(float)))
+            new_nparray = np.column_stack((new_nparray, res[:, idx].astype(float)))
         except ValueError:
             print(res[:, idx])
             traceback.print_exc()
