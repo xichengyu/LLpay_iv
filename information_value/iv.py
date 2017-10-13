@@ -166,7 +166,8 @@ class WOE(object):
             x1 = x[np.where((x >= point1) & (x <= point2))]
             mask = np.in1d(x, x1)
             res[mask] = (i + 1)
-            logging.info("discrete: " + str(res))
+            logging.info("discrete: " + str(res) + str((point1, point2)))
+            logging.info("mask: " + str(mask))
         logging.info("discrete_main: " + str(res))
         return res
 
