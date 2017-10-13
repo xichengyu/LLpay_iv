@@ -147,7 +147,7 @@ class WOE(object):
             if x_type == 'continuous':
                 x1 = self.discrete(x)
                 temp.append(x1)
-                logging.info("after: " + " ".join([str(i), str(set(x1)), str(x1)]))
+                logging.info("continue_after: " + " ".join([str(i), str(set(x1)), str(x1)]))
             else:
                 temp.append(x)
                 logging.info("after: " + " ".join([str(i), str(set(x)), str(x)]))
@@ -166,6 +166,8 @@ class WOE(object):
             x1 = x[np.where((x >= point1) & (x <= point2))]
             mask = np.in1d(x, x1)
             res[mask] = (i + 1)
+            logging.info("discrete: " + str(res))
+        logging.info("discrete_main: " + str(res))
         return res
 
     @property
