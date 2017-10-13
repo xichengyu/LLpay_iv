@@ -161,8 +161,7 @@ class WOE(object):
         '''
         res = np.array([0] * x.shape[-1], dtype=int)
         for i in range(5):
-            point1 = stats.scoreatpercentile(x, i * 20)
-            point2 = stats.scoreatpercentile(x, (i + 1) * 20)
+            point1, point2 = stats.scoreatpercentile(x, [i*20, (i+1)*20])
             x1 = x[np.where((x >= point1) & (x <= point2))]
             mask = np.in1d(x, x1)
             res[mask] = (i + 1)
