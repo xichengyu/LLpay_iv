@@ -12,7 +12,7 @@ import logging
 # import functools
 # from string import Template
 
-# import numpy as np
+import numpy as np
 # import pandas as pd
 
 logging.basicConfig(level=logging.ERROR)
@@ -96,6 +96,6 @@ def fetch_from_hive(sql):
 
 if __name__ == "__main__":
 
-    test_sql = "select * from dbmodel.data_lianlian_idno_pro limit 10"
+    test_sql = "select * from dbmodel.data_zhangzhong_iv_sample limit 10"
 
-    print (fetch_from_hive(test_sql))
+    print(np.array(fetch_from_hive(test_sql)).shape)
