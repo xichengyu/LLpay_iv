@@ -61,14 +61,22 @@ def delete_str_column(nparray):
     :param nparray:
     :return: the new numpy array
     """
+    columns = [x.strip() for x in open("column_name.txt").readlines()]
     new_nparray = np.array([[]]*nparray.shape[0])
     for idx in range(nparray.shape[-1]):
         try:
             new_nparray = np.column_stack((new_nparray, nparray[:, idx].astype(float)))
         except ValueError:
-            print_info(nparray[:, idx])
+            print_info(columns[idx], nparray[:, idx])
+            columns[idx] = ''
             # traceback.print_exc()
             continue
+    f = open("new_column_name.txt", "w")
+    for line in columns:
+        if line == '':
+            continue
+        else:
+            f.writelines(line)
     return new_nparray
 
 
