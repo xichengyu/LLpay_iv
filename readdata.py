@@ -54,6 +54,7 @@ def load_local_data(localpath, default=-1.0):
     print_info(res[0])
     return res
 
+
 def delete_str_column(nparray):
     """
     delete columns whose type is string
