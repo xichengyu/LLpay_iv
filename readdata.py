@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.externals import joblib
 
 
-def print_info(*args, if_print=True):
+def print_info(*args, if_print=False):
     """
     determine if log info printed
     :param string:
@@ -71,6 +71,7 @@ def delete_str_column(nparray):
             columns[idx] = ''
             # traceback.print_exc()
             continue
+    print(columns)
     f = open("new_column_name.txt", "w")
     for line in columns:
         if line == '':
