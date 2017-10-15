@@ -10,7 +10,7 @@ sys.path.append("information_value/")
 from iv import WOE
 from sklearn.externals import joblib
 
-if 1:
+if 0:
     localpath = "../data_lianlian"
     res = rd.read_local_data(localpath)
 else:
