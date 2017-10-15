@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.externals import joblib
 
 
-def print_info(*args, if_print=False):
+def print_info(*args, if_print=True):
     """
     determine if log info printed
     :param string:
@@ -33,14 +33,26 @@ def read_local_data(localpath, default=-1.0):
         for line in temp:
             res.append(line.split())
     print_info("total data: ", len(res))
-    temp = np.array(res)
+    res = np.array(res)
 
-    res = np.copy(temp)
     for idx in range(res.shape[-1]):        # replace non_type value with -1.0
         res[:, idx][np.where(res[:, idx] == '\\N')[0]] = default
     print_info(res[0])
     return res
 
+
+def load_local_data(localpath, default=-1.0):
+    """
+    load joblib format data from loacal place
+    :param localpath:
+    :param default:
+    :return:
+    """
+    res = np.array(joblib.load(localpath))
+    for idx in range(res.shape[-1]):        # replace non_type value with -1.0
+        res[:, idx][np.where((res[:, idx] == '') | (res[:, idx] == None))[0]] = default
+    print_info(res[0])
+    return res
 
 def delete_str_column(nparray):
     """
