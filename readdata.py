@@ -78,6 +78,8 @@ def delete_str_column(nparray):
             fdrop.writelines(line + "\n")
         else:
             fnew.writelines(line+"\n")
+    fnew.close()
+    fdrop.close()
     return new_nparray
 
 
