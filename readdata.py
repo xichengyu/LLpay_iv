@@ -75,9 +75,9 @@ def delete_str_column(nparray):
             continue
     for line in columns:
         if line == '':
-            fdrop.writelines(line + "\n")
+            fdrop.write(line + "\n")
         else:
-            fnew.writelines(line+"\n")
+            fnew.write(line + "\n")
     fnew.close()
     fdrop.close()
     return new_nparray
