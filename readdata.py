@@ -68,16 +68,12 @@ def delete_str_column(nparray):
     for idx in range(nparray.shape[-1]):
         try:
             new_nparray = np.column_stack((new_nparray, nparray[:, idx].astype(float)))
+            fnew.write(columns[idx] + "\n")
         except ValueError:
             print_info(columns[idx], nparray[:, idx])
-            columns[idx] = ''
+            fdrop.write(columns[idx] + "\n")
             # traceback.print_exc()
             continue
-    for line in columns:
-        if line == '':
-            fdrop.write(line + "\n")
-        else:
-            fnew.write(line + "\n")
     fnew.close()
     fdrop.close()
     return new_nparray
