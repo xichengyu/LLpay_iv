@@ -68,7 +68,7 @@ def delete_str_column(nparray):
     for idx in range(nparray.shape[-1]):
         try:
             new_nparray = np.column_stack((new_nparray, nparray[:, idx].astype(float)))
-            if idx < nparray.shape[-1]-1:
+            if idx < nparray.shape[-1]-1:       # nparray has one more column named "label"
                 fnew.write(columns[idx] + "\n")
         except ValueError:
             print_info(columns[idx], nparray[:, idx])
