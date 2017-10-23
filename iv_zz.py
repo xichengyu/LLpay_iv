@@ -5,16 +5,17 @@
 import sys
 import numpy as np
 # from inputs import fetch_from_hive
-import readdata as rd
+import read_data as rd
 sys.path.append("information_value/")
 from iv import WOE
 from sklearn.externals import joblib
+from read_cnf import get_conf_info
 
 if 0:
     localpath = "../data_lianlian"
     res = rd.read_local_data(localpath)
 else:
-    localpath = "../data_zz_iv/zz_iv2.dt"
+    localpath = "%s" % get_conf_info()["raw_data_dump_path"]
     res = rd.load_local_data(localpath)
 joblib.dump(res, "conf/raw_data.dt")
 new_nparray = rd.delete_str_column(res)
@@ -28,6 +29,7 @@ rd.print_info(X.shape)
 rd.print_info(y.sum(), np.count_nonzero(y))
 
 cal_woe = WOE()
+WOE.WOE_N = int(get_conf_info()["iv_n"])
 res_woe, res_iv = cal_woe.woe(X, y)
 
 rd.print_info(res_woe, res_woe.shape)

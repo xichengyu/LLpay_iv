@@ -16,6 +16,7 @@ class WOE(object):
     def __init__(self):
         self._WOE_MIN = -20
         self._WOE_MAX = 20
+        self._WOE_N = 20
 
     def woe(self, X, y, event=1):
         '''
@@ -145,7 +146,7 @@ class WOE(object):
             x_type = type_of_target(x)
             logging.info("before: "+" ".join([str(i), str(set(X[:, i])), str(x_type)]))
             if x_type == 'continuous':
-                x1 = self.discrete(x)
+                x1 = self.discrete(x, self._WOE_N)
                 temp.append(x1)
                 logging.info("continue_after: " + " ".join([str(i), str(set(x1)), str(x1)]))
             else:
@@ -193,6 +194,14 @@ class WOE(object):
     @WOE_MAX.setter
     def WOE_MAX(self, woe_max):
         self._WOE_MAX = woe_max
+
+    @property
+    def WOE_N(self):
+        return self._WOE_N
+
+    @WOE_N.setter
+    def WOE_N(self, woe_n):
+        self._WOE_N = woe_n
 
 
 if __name__ == "__main__":

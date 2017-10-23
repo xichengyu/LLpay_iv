@@ -15,6 +15,7 @@ import logging
 import numpy as np
 # import pandas as pd
 from sklearn.externals import joblib
+from read_cnf import get_conf_info
 
 logging.basicConfig(level=logging.ERROR)
 logging.getLogger('../hivelog/pyhive.log').setLevel(logging.INFO)
@@ -97,9 +98,9 @@ def fetch_from_hive(sql):
 
 if __name__ == "__main__":
 
-    test_sql = "select * from dbmodel.data_zhangzhong_iv_sample2"
+    test_sql = "select * from %s" % get_conf_info()["table"]
 
     data_zz_iv = fetch_from_hive(test_sql)
 
-    joblib.dump(data_zz_iv, "../data_zz_iv/zz_iv2.dt")
+    joblib.dump(data_zz_iv, "%s" % get_conf_info()["raw_data_dump_path"])
     print(np.array(data_zz_iv).shape)

@@ -4,6 +4,7 @@ import os
 import numpy as np
 # import traceback
 from sklearn.externals import joblib
+from read_cnf import get_conf_info
 
 
 def print_info(*args, if_print=False):
@@ -61,7 +62,7 @@ def delete_str_column(nparray):
     :param nparray:
     :return: the new numpy array
     """
-    columns = [x.strip() for x in open("column_name2.txt").readlines()]
+    columns = [x.strip() for x in open("%s" % get_conf_info()["column_name_path"]).readlines()]
     fnew = open("new_column_name.txt", "w")
     fdrop = open("dropped_column_name.txt", "w")
     new_nparray = np.array([[]]*nparray.shape[0])
