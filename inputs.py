@@ -97,9 +97,9 @@ def fetch_from_hive(sql):
 
 if __name__ == "__main__":
 
-    test_sql = "select * from dbmodel.data_zhangzhong_iv_sample"
+    test_sql = "select * from dbmodel.data_zhangzhong_iv_sample2"
 
     data_zz_iv = fetch_from_hive(test_sql)
 
-    joblib.dump(data_zz_iv, "../data_zz_iv/zz_iv.dt")
+    joblib.dump(data_zz_iv, "../data_zz_iv/zz_iv2.dt")
     print(np.array(data_zz_iv).shape)

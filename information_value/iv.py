@@ -153,7 +153,7 @@ class WOE(object):
                 logging.info("after: " + " ".join([str(i), str(set(x)), str(x)]))
         return np.array(temp).T
 
-    def discrete(self, x, n=100):
+    def discrete(self, x, n=20):
         '''
         Discrete the input 1-D numpy array using 5 equal percentiles
         :param n: the number of discretion

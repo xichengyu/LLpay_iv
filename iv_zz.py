@@ -14,7 +14,7 @@ if 0:
     localpath = "../data_lianlian"
     res = rd.read_local_data(localpath)
 else:
-    localpath = "../data_zz_iv/zz_iv.dt"
+    localpath = "../data_zz_iv/zz_iv2.dt"
     res = rd.load_local_data(localpath)
 joblib.dump(res, "conf/raw_data.dt")
 new_nparray = rd.delete_str_column(res)
