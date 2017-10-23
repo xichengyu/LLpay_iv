@@ -61,7 +61,7 @@ def delete_str_column(nparray):
     :param nparray:
     :return: the new numpy array
     """
-    columns = [x.strip() for x in open("column_name.txt").readlines()]
+    columns = [x.strip() for x in open("column_name2.txt").readlines()]
     fnew = open("new_column_name.txt", "w")
     fdrop = open("dropped_column_name.txt", "w")
     new_nparray = np.array([[]]*nparray.shape[0])
