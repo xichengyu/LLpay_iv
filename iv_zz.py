@@ -21,9 +21,14 @@ if 0:
 else:
     localpath = "%s" % conf_info["raw_data_dump_path"]
     res = rd.load_local_data(localpath)
+
+rd.print_info(DataFrame(res))
 joblib.dump(res, "conf/raw_data.dt")
+
 new_nparray = rd.delete_str_column(res)
 joblib.dump(new_nparray, "conf/float_data.dt")
+rd.print_info(DataFrame(new_nparray))
+
 
 y = new_nparray[:, int(conf_info["y_idx"])]
 X = np.delete(new_nparray, int(conf_info["y_idx"]), axis=1)
