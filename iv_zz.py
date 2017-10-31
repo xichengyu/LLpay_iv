@@ -29,7 +29,7 @@ y = new_nparray[:, int(conf_info["y_idx"])]
 X = np.delete(new_nparray, int(conf_info["y_idx"]), axis=1)
 joblib.dump(X, "conf/input_data.dt")
 
-impute = Imputer(X, strategy="median")
+impute = Imputer(strategy="median")
 X = impute.fit_transform(X)
 rd.print_info(DataFrame(X))
 
