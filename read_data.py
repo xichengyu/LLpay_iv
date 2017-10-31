@@ -7,7 +7,7 @@ from sklearn.externals import joblib
 from read_cnf import get_conf_info
 
 
-def print_info(*args, if_print=False):
+def print_info(*args, if_print=True):
     """
     determine if log info printed
     :param string:
