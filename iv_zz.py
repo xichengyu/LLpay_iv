@@ -10,8 +10,6 @@ sys.path.append("information_value/")
 from iv import WOE
 from sklearn.externals import joblib
 from read_cnf import get_conf_info
-from sklearn.preprocessing import Imputer
-from pandas import DataFrame
 
 conf_info = get_conf_info()
 
@@ -21,22 +19,13 @@ if 0:
 else:
     localpath = "%s" % conf_info["raw_data_dump_path"]
     res = rd.load_local_data(localpath)
-
-rd.print_info(DataFrame(res))
 joblib.dump(res, "conf/raw_data.dt")
-
 new_nparray = rd.delete_str_column(res)
 joblib.dump(new_nparray, "conf/float_data.dt")
-rd.print_info(DataFrame(new_nparray))
-
 
 y = new_nparray[:, int(conf_info["y_idx"])]
 X = np.delete(new_nparray, int(conf_info["y_idx"]), axis=1)
 joblib.dump(X, "conf/input_data.dt")
-
-impute = Imputer(strategy="median")
-X = impute.fit_transform(X)
-rd.print_info(DataFrame(X))
 
 rd.print_info(X.shape)
 rd.print_info(y.sum(), np.count_nonzero(y))
