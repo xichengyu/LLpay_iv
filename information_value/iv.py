@@ -19,14 +19,14 @@ class WOE(object):
         self._WOE_N = 20
 
     def woe(self, X, y, event=1):
-        '''
+        """
         Calculate woe of each feature category and information value
         :param X: 2-D numpy array explanatory features which should be discreted already
         :param y: 1-D numpy array target variable which should be binary
         :param event: value of binary stands for the event to predict
         :return: numpy array of woe dictionaries, each dictionary contains woe values for categories of each feature
                  numpy array of information value of each feature
-        '''
+        """
         self.check_target_binary(y)
         X1 = self.feature_discretion(X)
 
@@ -40,14 +40,14 @@ class WOE(object):
         return np.array(res_woe), np.array(res_iv)
 
     def woe_single_x(self, x, y, event=1):
-        '''
+        """
         calculate woe and information for a single feature
         :param x: 1-D numpy starnds for single feature
         :param y: 1-D numpy array target variable
         :param event: value of binary stands for the event to predict
         :return: dictionary contains woe values for categories of this feature
                  information value of this feature
-        '''
+        """
         self.check_target_binary(y)
 
         event_total, non_event_total = self.count_binary(y, event=event)
@@ -70,12 +70,12 @@ class WOE(object):
         return woe_dict, iv
 
     def woe_replace(self, X, woe_arr):
-        '''
+        """
         replace the explanatory feature categories with its woe value
         :param X: 2-D numpy array explanatory features which should be discreted already
         :param woe_arr: numpy array of woe dictionaries, each dictionary contains woe values for categories of each feature
         :return: the new numpy array in which woe values filled
-        '''
+        """
         if X.shape[-1] != woe_arr.shape[-1]:
             raise ValueError('WOE dict array length must be equal with features length')
 
@@ -90,7 +90,7 @@ class WOE(object):
         return res
 
     def combined_iv(self, X, y, masks, event=1):
-        '''
+        """
         calcute the information vlaue of combination features
         :param X: 2-D numpy array explanatory features which should be discreted already
         :param y: 1-D numpy array target variable
@@ -98,7 +98,7 @@ class WOE(object):
                       e.g. np.array([0,0,1,1,1,0,0,0,0,0,1]), the length should be same as features length
         :param event: value of binary stands for the event to predict
         :return: woe dictionary and information value of combined features
-        '''
+        """
         if masks.shape[-1] != X.shape[-1]:
             raise ValueError('Masks array length must be equal with features length')
 
@@ -125,21 +125,21 @@ class WOE(object):
         return event_count, non_event_count
 
     def check_target_binary(self, y):
-        '''
+        """
         check if the target variable is binary, raise error if not.
         :param y:
         :return:
-        '''
+        """
         y_type = type_of_target(y)
         if y_type not in ['binary']:
             raise ValueError('Label type must be binary')
 
     def feature_discretion(self, X):
-        '''
+        """
         Discrete the continuous features of input data X, and keep other features unchanged.
         :param X : numpy array
         :return: the numpy array in which all continuous features are discreted
-        '''
+        """
         temp = []
         for i in range(0, X.shape[-1]):
             x = X[:, i]
@@ -155,12 +155,12 @@ class WOE(object):
         return np.array(temp).T
 
     def discrete(self, x, n=20):
-        '''
+        """
         Discrete the input 1-D numpy array
         :param n: the number of discretion
         :param x: 1-D numpy array
         :return: discreted 1-D numpy array
-        '''
+        """
         res = np.array([0] * x.shape[-1], dtype=int)
         x_temp = x[x != -1.0]
         for i in range(1+n):
