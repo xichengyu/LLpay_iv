@@ -156,7 +156,7 @@ class WOE(object):
 
     def discrete(self, x, n=20):
         '''
-        Discrete the input 1-D numpy array using 5 equal percentiles
+        Discrete the input 1-D numpy array
         :param n: the number of discretion
         :param x: 1-D numpy array
         :return: discreted 1-D numpy array
