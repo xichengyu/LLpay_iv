@@ -36,7 +36,7 @@ def read_local_data(localpath, default=-1.0):
     print_info("total data: ", len(res))
     res = np.array(res)
 
-    for idx in range(res.shape[-1]):  # replace non_type value with -1.0
+    for idx in range(res.shape[-1]):        # replace non_type value with -1.0
         res[:, idx][np.where(res[:, idx] == '\\N')[0]] = default
     print_info(res[0])
     return res
@@ -50,9 +50,8 @@ def load_local_data(localpath, default=-1.0):
     :return:
     """
     res = np.array(joblib.load(localpath))
-    print(res[0, :])
-    for idx in range(res.shape[-1]):  # replace non_type value with -1.0
-        res[:, idx][np.isnan(res[:, idx])] = default
+    for idx in range(res.shape[-1]):        # replace non_type value with -1.0
+        res[:, idx][np.where((res[:, idx] == '') | (res[:, idx] == None))[0]] = default
     print_info(res[0])
     return res
 
@@ -66,11 +65,11 @@ def delete_str_column(nparray):
     columns = [x.strip() for x in open("%s" % get_conf_info()["column_name_path"]).readlines()]
     fnew = open("new_column_name.txt", "w")
     fdrop = open("dropped_column_name.txt", "w")
-    new_nparray = np.array([[]] * nparray.shape[0])
+    new_nparray = np.array([[]]*nparray.shape[0])
     for idx in range(nparray.shape[-1]):
         try:
             new_nparray = np.column_stack((new_nparray, nparray[:, idx].astype(float)))
-            if idx < nparray.shape[-1] - 1:  # nparray has one more column named "label"
+            if idx < nparray.shape[-1]-1:       # nparray has one more column named "label"
                 fnew.write(columns[idx] + "\n")
         except ValueError:
             print_info(columns[idx], nparray[:, idx])
