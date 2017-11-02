@@ -21,6 +21,7 @@ else:
     res = rd.load_local_data(localpath)
 
 joblib.dump(res, "conf/raw_data.dt")
+print("raw_data: ", res[0, :])
 
 idno = res[:, 0]
 idno_dt = np.column_stack((idno, res[:, 1]))
@@ -28,6 +29,7 @@ print(idno_dt.shape)
 
 new_nparray = rd.delete_str_column(res)
 joblib.dump(new_nparray, "conf/float_data.dt")
+print("delete_str: ", new_nparray[0, :])
 
 
 tmp_idno_dt = []
@@ -53,6 +55,7 @@ WOE.WOE_N = int(conf_info["iv_n"])
 X = cal_woe.feature_discretion(X)
 
 X = np.column_stack((idno_dt, X))
+print("X: ", X[0, :])
 
 joblib.dump(X, "conf/zhangzhong_result.dt")
 
