@@ -1,4 +1,4 @@
-table = dbmodel.data_zhangzhong_idno_xd_test
+table = zhangzhong.data_zhangzhong_idno_xd_test
 
 raw_data_dump_path = ../data_zz_iv/data_zhangzhong_idno_xd_test.dt
 
