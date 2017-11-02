@@ -34,6 +34,7 @@ tmp_idno_dt = []
 tmp_new_nparray = []
 
 for idx in range(new_nparray.shape[0]):
+    print(sum(new_nparray[idx, :]),  -1*new_nparray.shape[-1])
     if sum(new_nparray[idx, :]) == -1*new_nparray.shape[-1]:
         continue
     tmp_idno_dt.append(idno_dt[idx, :])
