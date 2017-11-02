@@ -50,6 +50,7 @@ def load_local_data(localpath, default=-1.0):
     :return:
     """
     res = np.array(joblib.load(localpath))
+    print(res[0, :])
     for idx in range(res.shape[-1]):  # replace non_type value with -1.0
         res[:, idx][np.isnan(res[:, idx])] = default
     print_info(res[0])
