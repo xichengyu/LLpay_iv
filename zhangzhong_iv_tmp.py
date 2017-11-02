@@ -32,5 +32,7 @@ cal_woe = WOE()
 WOE.WOE_N = int(conf_info["iv_n"])
 X = cal_woe.feature_discretion(X)
 
+joblib.dump(X, "conf/zhangzhong_result.dt")
+
 print(X)
 
