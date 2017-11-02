@@ -55,7 +55,7 @@ X = np.column_stack((idno_dt, X))
 
 joblib.dump(X, "conf/zhangzhong_result.dt")
 
-fout = open("result.csv", "w")
+fout = open("conf/result.csv", "w")
 for idx in range(X.shape[0]):
     x_list = list(X[idx, :].astype(str))
     fout.write(",".join(x_list)+"\n")
