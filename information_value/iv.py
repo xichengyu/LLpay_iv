@@ -60,11 +60,14 @@ class WOE(object):
             rate_event = 1.0 * event_count / event_total
             rate_non_event = 1.0 * non_event_count / non_event_total
             if rate_event == 0:
-                woe1 = self._WOE_MIN
+                rate_event = 1
+                # woe1 = self._WOE_MIN
             elif rate_non_event == 0:
-                woe1 = self._WOE_MAX
+                rate_non_event = 1
+                # woe1 = self._WOE_MAX
             else:
-                woe1 = math.log(rate_event / rate_non_event)
+                pass
+            woe1 = math.log(rate_event / rate_non_event)
             woe_dict[x1] = woe1
             iv += (rate_event - rate_non_event) * woe1
         return woe_dict, iv
