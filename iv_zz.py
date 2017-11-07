@@ -31,6 +31,8 @@ rd.print_info(X.shape)
 rd.print_info(y.sum(), np.count_nonzero(y))
 
 cal_woe = WOE()
+WOE.WOE_MAX = 1
+WOE.WOE_MIN = -1
 WOE.WOE_N = int(conf_info["iv_n"])
 res_woe, res_iv = cal_woe.woe(X, y)
 
