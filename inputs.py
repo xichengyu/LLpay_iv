@@ -98,9 +98,9 @@ def fetch_from_hive(sql):
 
 if __name__ == "__main__":
 
-    test_sql = "select * from %s" % get_conf_info()["table"]
+    conf_info = get_conf_info()
 
-    data_zz_iv = fetch_from_hive(test_sql)
+    data_zz_iv = fetch_from_hive(conf_info["sql"])
 
-    joblib.dump(data_zz_iv, "%s" % get_conf_info()["raw_data_dump_path"])
+    joblib.dump(data_zz_iv, "%s" % conf_info["raw_data_dump_path"])
     print(np.array(data_zz_iv).shape)

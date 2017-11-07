@@ -1,6 +1,8 @@
-table = zhangzhong.data_zhangzhong_idno_xd_test
+sql = select * from zhangzhong.data_zhangzhong_idno_xd_test where MAX_JL_SL_CNT_HIST > 0
+# sql = select * from dbmodel.data_lianlian_xd_iv_sample 
 
 raw_data_dump_path = ../data_zz_iv/data_zhangzhong_idno_xd_test.dt
+# raw_data_dump_path = ../data_zz_iv/zz_iv2.dt
 
 iv_n = 20
 
