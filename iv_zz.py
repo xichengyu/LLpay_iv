@@ -13,7 +13,7 @@ from read_cnf import get_conf_info
 
 conf_info = get_conf_info()
 
-if 1:
+if 0:
     localpath = "%s" % conf_info["raw_data_dump_path"]
     res = rd.read_local_data2(localpath)
 else:
