@@ -1,11 +1,20 @@
-sql = select * from zhangzhong.data_zhangzhong_idno_xd_test where MAX_JL_SL_CNT_HIST > 0
-# sql = select * from dbmodel.data_lianlian_xd_iv_sample 
+# sql = select * from zhangzhong.data_lianlian_idno_test_label_new
+# sql = select * from zhangzhong.data_zhangzhong_idno_xd_test_label_new
+# sql = select * from zhangzhong.data_zhangzhong_coverrate 
+# sql = select * from zhangzhong.moxie_sample2
+sql = select * from zhangzhong.data_moxie_202
 
-raw_data_dump_path = ../data_zz_iv/data_zhangzhong_idno_xd_test.dt
-# raw_data_dump_path = ../data_zz_iv/zz_iv2.dt
+# raw_data_dump_path = ../data_zz_iv/data_lianlian_idno_test_label_new.dt
+# raw_data_dump_path = ../data_zz_iv/data_zhangzhong_idno_xd_test_label_new.dt
+raw_data_dump_path = ../data_zz_iv/zz_iv2.dt
+
 
 iv_n = 20
 
+
+# column_name_path = data_lianlian_idno_test.txt
+# column_name_path = data_zhangzhong_idno_xd_test.txt
 column_name_path = column_name2.txt
+
 
 y_idx = -1
