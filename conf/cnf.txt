@@ -6,7 +6,8 @@ sql = select * from zhangzhong.data_moxie_202
 
 # raw_data_dump_path = ../data_zz_iv/data_lianlian_idno_test_label_new.dt
 # raw_data_dump_path = ../data_zz_iv/data_zhangzhong_idno_xd_test_label_new.dt
-raw_data_dump_path = ../data_zz_iv/zz_iv2.dt
+# raw_data_dump_path = ../data_zz_iv/zz_iv2.dt
+raw_data_dump_path = ../data_zz_iv/zhangzhong1118.txt
 
 
 iv_n = 20
@@ -14,7 +15,8 @@ iv_n = 20
 
 # column_name_path = data_lianlian_idno_test.txt
 # column_name_path = data_zhangzhong_idno_xd_test.txt
-column_name_path = column_name2.txt
+# column_name_path = column_name2.txt
+column_name_path = column_file/zhangzhong1118_column.txt
 
 
 y_idx = -1

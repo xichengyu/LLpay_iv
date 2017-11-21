@@ -13,9 +13,9 @@ from read_cnf import get_conf_info
 
 conf_info = get_conf_info()
 
-if 0:
-    localpath = "../data_lianlian"
-    res = rd.read_local_data(localpath)
+if 1:
+    localpath = "%s" % conf_info["raw_data_dump_path"]
+    res = rd.read_local_data2(localpath)
 else:
     localpath = "%s" % conf_info["raw_data_dump_path"]
     res = rd.load_local_data(localpath)
