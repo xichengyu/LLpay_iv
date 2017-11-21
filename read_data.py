@@ -58,7 +58,7 @@ def read_local_data2(localpath, default=-1.0):
     print_info("total data: ", res.shape)
 
     for idx in range(res.shape[-1]):        # replace non_type value with -1.0
-        res[:, idx][np.where((res[:, idx] == '') | (res[:, idx] == None))[0]] = default
+        res[:, idx][np.where((res[:, idx] == '') | (res[:, idx] == None) | (res[:, idx] == "NULL"))[0]] = default
     print_info(res[0])
     return res
 
@@ -104,7 +104,7 @@ def delete_str_column(nparray):
 
 if __name__ == "__main__":
     localpath = "../data_lianlian"
-    res = read_local_data(localpath)
+    res = read_local_data2(localpath)
     new_nparray = delete_str_column(res)
 
     print_info(new_nparray.shape, new_nparray[0])
