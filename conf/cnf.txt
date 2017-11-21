@@ -7,7 +7,7 @@ sql = select * from zhangzhong.data_moxie_202
 # raw_data_dump_path = ../data_zz_iv/data_lianlian_idno_test_label_new.dt
 # raw_data_dump_path = ../data_zz_iv/data_zhangzhong_idno_xd_test_label_new.dt
 # raw_data_dump_path = ../data_zz_iv/zz_iv2.dt
-raw_data_dump_path = ../data_zz_iv/zhangzhong_cover_40545.txt
+raw_data_dump_path = ../data_zz_iv/zhangzhong/zhangzhong_cover_40545.txt
 
 
 iv_n = 20
