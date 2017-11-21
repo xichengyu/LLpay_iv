@@ -1,9 +1,9 @@
 sql = dbmodel.data_zhangzhong_iv_sample2
 
-raw_data_dump_path = ../data_zz_iv/zz_iv2.dt
+raw_data_dump_path = ../data_zz_iv/zhangzhong1118.txt
 
 iv_n = 20
 
-column_name_path = column_name2.txt
+column_name_path = column_file/zhangzhong1118_column.txt
 
 y_idx = -1

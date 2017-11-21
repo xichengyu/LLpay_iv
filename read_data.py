@@ -18,7 +18,7 @@ def print_info(*args, if_print=True):
         print(*args)
 
 
-def read_local_data(localpath, default=-1.0):
+def read_local_data1(localpath, default=-1.0):
     """
     read data from local place
     :param default: default value used to replace non_type value
@@ -38,6 +38,27 @@ def read_local_data(localpath, default=-1.0):
 
     for idx in range(res.shape[-1]):        # replace non_type value with -1.0
         res[:, idx][np.where(res[:, idx] == '\\N')[0]] = default
+    print_info(res[0])
+    return res
+
+
+def read_local_data2(localpath, default=-1.0):
+    """
+    read data from local place
+    :param default: default value used to replace non_type value
+    :param localpath: the path of data
+    :return: the new numpy array in which None_type values are replaced with -1.0
+    """
+    res = []
+    temp = open(localpath).readlines()
+    for line in temp:
+        res.append(line.strip().split(","))
+    res = np.array(res)
+
+    print_info("total data: ", res.shape)
+
+    for idx in range(res.shape[-1]):        # replace non_type value with -1.0
+        res[:, idx][np.where((res[:, idx] == '') | (res[:, idx] == None))[0]] = default
     print_info(res[0])
     return res
 
